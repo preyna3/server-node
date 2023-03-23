@@ -1,2 +1,12 @@
-/* eslint-disable prettier/prettier */
-console.log('hello there')
+import express from 'express'
+
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) => {
+    res.send({msg:'Hello There'})
+  })
+  
+  app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+  })
