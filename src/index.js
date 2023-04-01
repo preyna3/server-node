@@ -3,6 +3,7 @@ import express from 'express'
 import morgan from 'morgan'
 import cors from 'cors'
 import helmet from 'helmet'
+import { notFound, errorHandler } from './helpers/errors'
 
 import logger from './helpers/logger'
 import router from './routes'
@@ -16,5 +17,7 @@ app.use(cors({ origin: process.env.ORIGIN }))
 app.use(helmet())
 
 app.use(router)
+app.use(notFound)
+app.use(errorHandler)
 
   app.listen(port, () => logger.info(`Application started at http://localhost:${port}`))
