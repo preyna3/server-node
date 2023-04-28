@@ -32,8 +32,10 @@ model Employee {
   employeeID   String     @id @default(uuid())
   name         String
   email        String     @unique
+  title        String
   departmentId String
   department   Department @relation(fields: [departmentId], references: [departmentId])
+  quote        String?
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
 }

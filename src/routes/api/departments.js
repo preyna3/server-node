@@ -1,7 +1,8 @@
 /* eslint-disable prettier/prettier */
 import { Router } from 'express'
-import { getCompanies, getCompany, addCompany } from '../../models/companies'
-import { getDepartments } from '../../models/departments'
+/*import { getCompanies, getCompany, addCompany } from '../../models/companies' 
+*/
+import { getDepartments, getDepartment } from '../../models/departments'
 
 const router = Router()
 
@@ -9,16 +10,16 @@ router.get('/', async (req, res) => {
   const departments = await getDepartments()
   res.send(departments)
 })
-/*
+
 router.get('/:id', async (req, res) => {
-  const company = await getCompany(req.params.id)
-  if (company){
-    res.send(company)
+  const department = await getDepartments(req.params.id)
+  if (department){
+    res.send(department)
   } else {
-    res.status(404).send({msg:'company not found'})
+    res.status(404).send({msg:'Department not found'})
   }
 })
-
+/*
 router.post('/', async (req, res) => {
   const companyName = req.body.name
   if (companyName){
