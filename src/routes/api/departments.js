@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/:id', async (req, res) => {
-  const department = await getDepartments(req.params.id)
+  const department = await getDepartment(req.params.id)
   if (department){
     res.send(department)
   } else {
